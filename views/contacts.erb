@@ -1,8 +1,12 @@
-<h2>Записаться</h2>
-<form фсешщт="/visit" method="POST" role="form">
+<h2>Контакты</h2>
+<form action="/contacts" method="POST" role="form">
   <div class="form-group">
-    <label for="exampleInputEmail1">Ваше имя</label>
-    <input name="username" type="email" class="form-control" placeholder="Введите ваше имя">
+    <label>Ваше e-mail</label>
+    <input name="email" type="email" class="form-control" placeholder="Введите ваш e-mail">
   </div>
-  <button type="submit" class="btn btn-primary">Записаться</button>
+  <div class="form-group">
+    <label>Ваше сообщение</label>
+    <textarea name="message" type="textarea" class="form-control" placeholder="Введите ваше сообщение"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
