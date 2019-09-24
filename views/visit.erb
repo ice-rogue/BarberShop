@@ -14,9 +14,9 @@
   </div>
 	<select name="barber" class="form-control form-control-sm">
 		<option selected>Выберите парикмахера</option>
-	  <option>Виктор</option>
-	  <option>Борис</option>
-	  <option>Крис</option>
+	  <option <%= @barber == "Виктор" ? "selected" : "" %>>Виктор</option>
+	  <option <%= @barber == "Борис" ? "selected" : "" %>>Борис</option>
+	  <option <%= @barber == "Крис" ? "selected" : "" %>>Крис</option>
 	</select>
 	<br>
   <button type="submit" class="btn btn-primary">Записаться</button>
