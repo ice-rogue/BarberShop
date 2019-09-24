@@ -1,7 +1,7 @@
 require "rubygems"
 require "sinatra"
 require "sinatra/reloader"
-require "sqlite3"
+require "SQLite3"
 
 def get_db
   return SQLite3::Database.new "barbershop.db"
@@ -9,9 +9,7 @@ end
 
 configure do
   db = get_db
-  db.execute "CREATE TABLE IF NOT EXISTS 
-    Users
-    (
+  db.execute "CREATE TABLE IF NOT EXISTS Users (
     'id' INTEGER PRIMARY KEY AUTOINCREMENT, 
     'username' TEXT, 
     'phone' TEXT, 
@@ -48,13 +46,18 @@ post "/visit" do
   db = get_db
   db.execute "INSERT INTO Users (username, phone, datestamp, barber) values (?,?,?,?)", [@username, @phone, @datetime, @barber]
 
-  f = File.open("public/users.txt", "a")
-  f.write "Имя: #{@username}. Телефон: #{@phone}. Время и дата: #{@dateandtime}. Парикмахер: #{@barber}\n"
-  f.close
   erb :visit
 end
 
 get "/contacts" do
   erb :contacts
+end
+
+get "/showusers" do
+  db = get_db
+
+  @results = db.execute "select * from Users order by id desc"
+  
+  erb :showusers
 end
 

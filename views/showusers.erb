@@ -1,0 +1,13 @@
+<h2>Пользователи</h2>
+<table class="table">
+	
+	<% @results.each do |row| %>
+		<tr>
+			<td><%= row[1] %></td>
+			<td><%= row[2] %></td>
+			<td><%= row[3] %></td>
+			<td><%= row[4] %></td>
+		</tr>
+	<% end %>
+
+</table>
